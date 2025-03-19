@@ -104,39 +104,6 @@ export default function ProgramaDeEnsinoPage() {
                 escolhidos pelos mentores mais experientes com base em sua habilidade, dedicação e disposição.
               </p>
             </div>
-
-            <div className="mt-10">
-              <h3 className="text-xl font-bold mb-4 text-acap-green-800 dark:text-acap-green-500">
-                Metodologia em Ação
-              </h3>
-              <div className="overflow-hidden rounded-md shadow-md mb-6 border-2 border-acap-green-600">
-                <img
-                  src="/placeholder.svg?height=400&width=800"
-                  alt="Aula de Chula em andamento"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              <h3 className="text-xl font-bold mb-4 text-acap-blue-800 dark:text-acap-blue-600">Depoimentos</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <div className="bg-gradient-to-r from-zinc-200 to-zinc-300 dark:from-zinc-700 dark:to-zinc-800 p-4 rounded-md border-l-4 border-acap-gold-500">
-                  <p className="text-zinc-700 dark:text-zinc-300 italic">
-                    "A Academia de Chula Adaga de Prata transformou minha visão sobre o sapateado gaúcho. Hoje me sinto
-                    confiante para criar meus próprios passos."
-                  </p>
-                  <p className="text-acap-gold-700 dark:text-acap-gold-500 font-bold mt-2">- João Silva, Chuleador</p>
-                </div>
-                <div className="bg-gradient-to-r from-zinc-200 to-zinc-300 dark:from-zinc-700 dark:to-zinc-800 p-4 rounded-md border-l-4 border-acap-gold-500">
-                  <p className="text-zinc-700 dark:text-zinc-300 italic">
-                    "Comecei sem nenhuma experiência e hoje já participo de competições. A metodologia da academia faz
-                    toda a diferença."
-                  </p>
-                  <p className="text-acap-gold-700 dark:text-acap-gold-500 font-bold mt-2">
-                    - Pedro Santos, Competidor
-                  </p>
-                </div>
-              </div>
-            </div>
           </CardContent>
         </Card>
       </div>

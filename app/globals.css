@@ -2,50 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --background: #ffffff;
+    --foreground: #151515;
+    --card: #ffffff;
+    --card-foreground: #0a0a0a;
+    --popover: #ffffff;
+    --popover-foreground: #0a0a0a;
+    --primary: #1a1a1a;
+    --primary-foreground: #fafafa;
+    --secondary: #f5f5f5;
+    --secondary-foreground: #1a1a1a;
+    --muted: #f5f5f5;
+    --muted-foreground: #737373;
+    --accent: #f5f5f5;
+    --accent-foreground: #1a1a1a;
+    --destructive: #d32f2f;
+    --destructive-foreground: #fafafa;
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #0a0a0a;
+    --chart-1: #d85a3d;
+    --chart-2: #21897e;
+    --chart-3: #124a60;
+    --chart-4: #e3a72f;
+    --chart-5: #f7972e;
     --radius: 0.5rem;
+    --sidebar-background: #fafafa;
+    --sidebar-foreground: #424242;
+    --sidebar-primary: #1a1a1a;
+    --sidebar-primary-foreground: #fafafa;
+    --sidebar-accent: #f2f2f2;
+    --sidebar-accent-foreground: #1a1a1a;
+    --sidebar-border: #d5d5d5;
+    --sidebar-ring: #2c7ef7;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --background: #151515;
+    --foreground: #fafafa;
+    --card: #0a0a0a;
+    --card-foreground: #fafafa;
+    --popover: #0a0a0a;
+    --popover-foreground: #fafafa;
+    --primary: #fafafa;
+    --primary-foreground: #1a1a1a;
+    --secondary: #262626;
+    --secondary-foreground: #fafafa;
+    --muted: #262626;
+    --muted-foreground: #a1a1a1;
+    --accent: #262626;
+    --accent-foreground: #fafafa;
+    --destructive: #991b1b;
+    --destructive-foreground: #fafafa;
+    --border: #262626;
+    --input: #262626;
+    --ring: #d4d4d4;
+    --chart-1: #0055ff;
+    --chart-2: #008f68;
+    --chart-3: #ff9f1c;
+    --chart-4: #a358df;
+    --chart-5: #e63946;
+    --sidebar-background: #1a1a1a;
+    --sidebar-foreground: #f2f2f2;
+    --sidebar-primary: #2a61d6;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #242424;
+    --sidebar-accent-foreground: #f2f2f2;
+    --sidebar-border: #242424;
+    --sidebar-ring: #2c7ef7;
   }
 }
 
@@ -57,34 +93,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-@layer utilities {
-  .clip-angular {
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%);
-  }
-
-  .clip-angular-sm {
-    clip-path: polygon(0 0, 100% 0, 100% 70%, 95% 100%, 0 100%);
-  }
-
-  .clip-angular-left {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
-  }
-
-  .clip-angular-right {
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  }
-
-  .clip-diamond {
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  }
-
-  .text-shadow {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-
-  .border-gradient {
-    border-image: linear-gradient(to right, theme("colors.acap.gold.500"), theme("colors.acap.blue.700")) 1;
-  }
-}
-

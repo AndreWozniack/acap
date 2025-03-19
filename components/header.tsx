@@ -1,27 +1,32 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "./theme-toggle"
+import { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./theme-toggle";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <header className="w-full bg-gradient-to-r from-zinc-900 via-acap-blue-950 to-zinc-900 text-white shadow-md z-50 sticky top-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <div className="h-10 w-10 rounded-full bg-acap-gold-500 flex items-center justify-center mr-2 shadow-md">
-              <span className="font-bold text-zinc-900">AC</span>
-            </div>
-            <Link href="/" className="font-bold text-xl tracking-tight text-acap-gold-300">
+            <img
+              src="/logo_adaga.png"
+              alt="Logo ACAP"
+              className="h-10 w-10 rounded-full object-cover shadow-md mr-2"
+            />
+            <Link
+              href="/"
+              className="font-bold text-xl tracking-tight text-acap-gold-300"
+            >
               ACAP
             </Link>
           </div>
@@ -38,7 +43,7 @@ export default function Header() {
                 href="/historia"
                 className="px-3 py-2 rounded-md text-sm font-medium hover:bg-acap-blue-900 transition-colors"
               >
-                História
+                História da Chula
               </Link>
               <Link
                 href="/programa-de-ensino"
@@ -55,13 +60,18 @@ export default function Header() {
             </nav>
           </div>
 
-          <div className="hidden md:flex items-center">
+          {/* <div className="hidden md:flex items-center">
             <ThemeToggle />
-          </div>
+          </div> */}
 
           <div className="md:hidden flex items-center">
             <ThemeToggle />
-            <Button variant="ghost" size="icon" onClick={toggleMenu} className="ml-2 text-white hover:bg-acap-blue-900">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleMenu}
+              className="ml-2 text-white hover:bg-acap-blue-900"
+            >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
           </div>
@@ -104,6 +114,5 @@ export default function Header() {
         </div>
       )}
     </header>
-  )
+  );
 }
-

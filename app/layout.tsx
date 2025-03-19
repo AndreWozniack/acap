@@ -9,8 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Academia de Chula Adaga de Prata",
-  description: "Descubra a arte do sapateado gaúcho!",
-    generator: 'v0.dev'
+  description: "Descubra a arte do sapateado gaúcho!"
 }
 
 export default function RootLayout({
@@ -21,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body
-        className={`${inter.className} min-h-screen flex flex-col bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50`}
+        className={`${inter.className} min-h-screen flex flex-col bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50`}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <Header />

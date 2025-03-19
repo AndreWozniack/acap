@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "title": "Aula Inaugural",
+      "date": "2024-04-15",
+      "location": "CTG Fazenda Rio Grande",
+      "description": "Primeira aula oficial da Academia de Chula Adaga de Prata. Aberto para todos os interessados.",
+      "color": "bg-gradient-to-r from-acap-gold-700 to-acap-gold-800"
+    },
+    {
+      "id": 2,
+      "title": "Workshop Especial",
+      "date": "2024-04-30",
+      "location": "Parque Multieventos",
+      "description": "Workshop com o campeão Leonardo Brizola de Melo, abordando técnicas avançadas de chula.",
+      "color": "bg-gradient-to-r from-acap-gold-700 to-acap-gold-800"
+    }
+  ]

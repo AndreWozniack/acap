@@ -66,7 +66,6 @@ const config = {
           900: "#18181b",
           950: "#09090b",
         },
-        // Cores personalizadas para o tema da Academia
         acap: {
           green: {
             50: "#f0fdf4",

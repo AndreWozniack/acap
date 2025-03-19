@@ -6,7 +6,7 @@ export default function HistoriaPage() {
       <div className="w-full max-w-4xl px-4 md:px-8">
         <Card className="bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 shadow-md">
           <CardHeader className="border-b border-zinc-300 dark:border-zinc-700 bg-gradient-to-r from-acap-blue-800 to-zinc-900 clip-angular-sm">
-            <CardTitle className="text-2xl font-bold text-white">História</CardTitle>
+            <CardTitle className="text-2xl font-bold text-white">História da Chula</CardTitle>
           </CardHeader>
           <CardContent className="pt-6 space-y-4">
             <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
@@ -17,17 +17,7 @@ export default function HistoriaPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
               <div className="overflow-hidden rounded-md shadow-md border-2 border-acap-gold-600">
-                <img
-                  src="/placeholder.svg?height=300&width=500"
-                  alt="Chula histórica - 1952"
-                  className="w-full h-auto"
-                />
-                <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2 px-2 pb-2">
-                  Apresentação histórica da chula no Theatro São Pedro, 1952.
-                </p>
-              </div>
-              <div className="overflow-hidden rounded-md shadow-md border-2 border-acap-gold-600">
-                <img src="/placeholder.svg?height=300&width=500" alt="Grupo Os Muuripás" className="w-full h-auto" />
+                <img src="/os_muripas.jpg?height=300&width=500" alt="Grupo Os Muuripás" className="w-full h-auto" />
                 <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2 px-2 pb-2">
                   Grupo Os Muuripás durante apresentação em 1971.
                 </p>

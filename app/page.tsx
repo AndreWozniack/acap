@@ -1,16 +1,37 @@
+"use client";
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useEffect, useState } from "react";
+
+interface Event {
+  id: number;
+  title: string;
+  date: string;
+  location: string;
+  description: string;
+  color: string;
+}
 
 export default function Home() {
+
+  const [events, setEvents] = useState<Event[]>([]);
+
+  useEffect(() => {
+    fetch("/api/events")
+      .then((res) => res.json())
+      .then((data) => setEvents(data))
+      .catch((err) => console.error("Erro ao buscar eventos:", err));
+  }, []);
+
   return (
     <main className="flex flex-col items-center">
       {/* Hero Section */}
       <section className="w-full bg-gradient-to-br from-zinc-900 via-acap-blue-900 to-zinc-800 py-20 px-4 md:px-8 flex flex-col items-center justify-center text-center space-y-6 clip-angular">
         <div className="w-full max-w-4xl mb-6">
           <img
-            src="/placeholder.svg?height=400&width=1200"
+            src="/logo_adaga.png?height=400&width=1200"
             alt="Academia de Chula Adaga de Prata"
             className="w-full h-auto rounded-md shadow-lg"
           />
@@ -45,50 +66,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="w-full max-w-6xl py-8 px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card className="bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 shadow-md hover:shadow-lg transition-shadow">
-          <CardHeader className="border-b border-zinc-300 dark:border-zinc-700 bg-gradient-to-r from-acap-green-700 to-acap-green-900 clip-angular-sm">
-            <CardTitle className="text-xl font-bold text-white">Missão</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <p className="text-zinc-700 dark:text-zinc-300">
-              A missão da Academia de Chula Adaga de Prata é cultivar chuleadores que sejam não apenas bons executores
-              de movimentos, o objetivo é proporcionar um ambiente rico e estimulante, onde os integrantes possam
-              desenvolver plenamente suas habilidades e estilos pessoais, tornando-se dançarinos inovadores e
-              auto-suficientes.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 shadow-md hover:shadow-lg transition-shadow">
-          <CardHeader className="border-b border-zinc-300 dark:border-zinc-700 bg-gradient-to-r from-acap-blue-800 to-acap-blue-900 clip-angular-sm">
-            <CardTitle className="text-xl font-bold text-white">Visão</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <p className="text-zinc-700 dark:text-zinc-300">
-              A visão da Academia de Chula Adaga de Prata é ser reconhecida como um epicentro de excelência em chula, de
-              onde emergem dançarinos influentes e que sejam no cenário cultural. Almejamos formar um grupo coeso de
-              chuleadores que não apenas dominem a arte da dança, mas que também atuem como embaixadores da cultura
-              gaúcha, elevando e difundindo a arte da chula e do sapateado gaucho onde forem.
-            </p>
-          </CardContent>
-        </Card>
-      </section>
 
       {/* Info Section */}
       <section className="w-full max-w-6xl py-8 px-4 md:px-8">
-        <div className="bg-gradient-to-r from-acap-blue-900 to-zinc-900 text-white p-6 md:p-8 rounded-md shadow-md clip-angular">
+        <div className="bg-gradient-to-r from-zinc-700 to-zinc-800 text-white p-6 md:p-8 rounded-md shadow-md clip-angular">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="text-xl font-bold mb-3 text-acap-gold-300">Onde?</h3>
               <p className="text-zinc-200">
-                As aulas serão realizadas no CTG Fazenda Rio Grande, no Parque Multieventos
+                As aulas serão realizadas no Centro Multieventos de Fazenda Rio Grande, Av. Brasil - Eucaliptos, Fazenda Rio Grande - PR
               </p>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-3 text-acap-gold-300">Quando?</h3>
-              <p className="text-zinc-200">As aulas ocorrerão semanalmente, das 20h às 22h (Dia ainda a definir)</p>
+              <p className="text-zinc-200">As aulas ocorrerão semanalmente, das 20h às 22h ás quintas-feiras</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-3 text-acap-gold-300">Qual o valor?</h3>
+              <p className="text-zinc-200">As aulas serão gratuitas, sendo necessário inscrição prévia!</p>
             </div>
           </div>
         </div>
@@ -142,7 +137,38 @@ export default function Home() {
         </Card>
       </section>
 
-      {/* Galeria de Imagens */}
+      {/* Mission & Vision */}
+      <section className="w-full max-w-6xl py-8 px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card className="bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 shadow-md hover:shadow-lg transition-shadow">
+          <CardHeader className="border-b border-zinc-300 dark:border-zinc-700 bg-gradient-to-r from-acap-green-700 to-acap-green-900 clip-angular-sm">
+            <CardTitle className="text-xl font-bold text-white">Missão</CardTitle>
+          </CardHeader>
+          <CardContent className="pt-6">
+            <p className="text-zinc-700 dark:text-zinc-300">
+              A missão da Academia de Chula Adaga de Prata é cultivar chuleadores que sejam não apenas bons executores
+              de movimentos, o objetivo é proporcionar um ambiente rico e estimulante, onde os integrantes possam
+              desenvolver plenamente suas habilidades e estilos pessoais, tornando-se dançarinos inovadores e
+              auto-suficientes.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 shadow-md hover:shadow-lg transition-shadow">
+          <CardHeader className="border-b border-zinc-300 dark:border-zinc-700 bg-gradient-to-r from-acap-blue-800 to-acap-blue-900 clip-angular-sm">
+            <CardTitle className="text-xl font-bold text-white">Visão</CardTitle>
+          </CardHeader>
+          <CardContent className="pt-6">
+            <p className="text-zinc-700 dark:text-zinc-300">
+              A visão da Academia de Chula Adaga de Prata é ser reconhecida como um epicentro de excelência em chula, de
+              onde emergem dançarinos influentes e que sejam no cenário cultural. Almejamos formar um grupo coeso de
+              chuleadores que não apenas dominem a arte da dança, mas que também atuem como embaixadores da cultura
+              gaúcha, elevando e difundindo a arte da chula e do sapateado gaucho onde forem.
+            </p>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Galeria de Imagens
       <section className="w-full max-w-6xl py-12 px-4 md:px-8">
         <h2 className="text-2xl font-bold mb-6 text-zinc-800 dark:text-zinc-100">
           <span className="border-b-2 border-acap-gold-500 pb-1">Galeria</span>
@@ -170,66 +196,42 @@ export default function Home() {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Eventos ou Notícias */}
+      {/* Seção de Eventos */}
       <section className="w-full max-w-6xl py-12 px-4 md:px-8">
         <h2 className="text-2xl font-bold mb-6 text-zinc-800 dark:text-zinc-100">
           <span className="border-b-2 border-acap-blue-700 pb-1">Próximos Eventos</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 shadow-md hover:shadow-lg transition-shadow">
-            <CardHeader className="border-b border-zinc-300 dark:border-zinc-700 bg-gradient-to-r from-acap-gold-700 to-acap-gold-800">
-              <CardTitle className="text-lg font-bold text-white">Aula Inaugural</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-4">
-              <p className="text-zinc-700 dark:text-zinc-300 mb-2">
-                <strong>Data:</strong> 15 de Abril, 2024
-              </p>
-              <p className="text-zinc-700 dark:text-zinc-300 mb-2">
-                <strong>Local:</strong> CTG Fazenda Rio Grande
-              </p>
-              <p className="text-zinc-700 dark:text-zinc-300">
-                Primeira aula oficial da Academia de Chula Adaga de Prata. Aberto para todos os interessados.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 shadow-md hover:shadow-lg transition-shadow">
-            <CardHeader className="border-b border-zinc-300 dark:border-zinc-700 bg-gradient-to-r from-acap-green-700 to-acap-green-800">
-              <CardTitle className="text-lg font-bold text-white">Workshop Especial</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-4">
-              <p className="text-zinc-700 dark:text-zinc-300 mb-2">
-                <strong>Data:</strong> 30 de Abril, 2024
-              </p>
-              <p className="text-zinc-700 dark:text-zinc-300 mb-2">
-                <strong>Local:</strong> Parque Multieventos
-              </p>
-              <p className="text-zinc-700 dark:text-zinc-300">
-                Workshop com o campeão Leonardo Brizola de Melo, abordando técnicas avançadas de chula.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 shadow-md hover:shadow-lg transition-shadow">
-            <CardHeader className="border-b border-zinc-300 dark:border-zinc-700 bg-gradient-to-r from-acap-blue-700 to-acap-blue-800">
-              <CardTitle className="text-lg font-bold text-white">Roda de Chula</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-4">
-              <p className="text-zinc-700 dark:text-zinc-300 mb-2">
-                <strong>Data:</strong> 15 de Maio, 2024
-              </p>
-              <p className="text-zinc-700 dark:text-zinc-300 mb-2">
-                <strong>Local:</strong> CTG Fazenda Rio Grande
-              </p>
-              <p className="text-zinc-700 dark:text-zinc-300">
-                Encontro informal para prática e troca de experiências entre chuleadores de todos os níveis.
-              </p>
-            </CardContent>
-          </Card>
+          {events.length > 0 ? (
+            events.map((event) => (
+              <Card key={event.id} className={`bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 shadow-md hover:shadow-lg transition-shadow`}>
+                <CardHeader className={`border-b border-zinc-300 dark:border-zinc-700 ${event.color}`}>
+                  <CardTitle className="text-lg font-bold text-white">{event.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="pt-4">
+                  <p className="text-zinc-700 dark:text-zinc-300 mb-2">
+                    <strong>Data:</strong> {new Date(event.date).toLocaleDateString("pt-BR")}
+                  </p>
+                  <p className="text-zinc-700 dark:text-zinc-300 mb-2">
+                    <strong>Local:</strong> {event.location}
+                  </p>
+                  <p className="text-zinc-700 dark:text-zinc-300">{event.description}</p>
+                </CardContent>
+              </Card>
+            ))
+          ) : (
+            <p className="text-zinc-700 dark:text-zinc-300">Nenhum evento encontrado.</p>
+          )}
         </div>
       </section>
+
+      <Button className="mt-6 bg-acap-gold-600 hover:bg-acap-gold-700 text-white border-none">
+          <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdsE4qTCrloSgSzgVtYbcZhKJ2luafS6jCvJxbG2stduq9uCg/viewform?usp=header" className="flex items-center">
+            Quero fazer parte! <ChevronRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
 
       {/* Contact Section */}
       <section id="contato" className="w-full max-w-6xl py-8 px-4 md:px-8 mb-12">
