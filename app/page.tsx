@@ -28,24 +28,37 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center">
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-br from-zinc-900 via-acap-blue-900 to-zinc-800 py-20 px-4 md:px-8 flex flex-col items-center justify-center text-center space-y-6 clip-angular">
-        <div className="w-full max-w-4xl mb-6">
-          <img
-            src="/logo_adaga.png?height=400&width=1200"
-            alt="Academia de Chula Adaga de Prata"
-            className="w-full h-auto rounded-md shadow-lg"
-          />
+      <section className="w-full bg-gradient-to-br from-zinc-900 via-acap-blue-900 to-zinc-800 py-20 px-4 md:px-8 text-center md:text-left clip-angular">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+          {/* Texto à esquerda */}
+          <div className="space-y-6">
+            <h3 className="text-2xl md:text-3xl font-bold text-acap-gold-500 tracking-tight text-shadow">
+            <span className=" text-acap-gray-200">Academia de Chula</span>
+            </h3>
+            <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight text-shadow">
+              <span className="font-bold text-acap-gray-300">Adaga de Prata</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-zinc-300">
+              Descubra a arte do sapateado gaúcho!
+            </p>
+            <Button className="mt-4 bg-acap-gold-600 hover:bg-acap-gold-700 text-white border-none">
+              <Link href="/programa-de-ensino" className="flex items-center">
+                Conheça nosso programa <ChevronRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+
+          {/* Imagem à direita */}
+          <div className="w-full">
+            <img
+              src="/logo_adaga.png?height=400&width=800"
+              alt="Academia de Chula Adaga de Prata"
+              className="w-full max-w-[400px] md:max-w-[350px] mx-auto md:mx-0 h-auto rounded-md shadow-lg"
+            />
+          </div>
         </div>
-        <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight text-shadow">
-          Academia de Chula <span className="text-acap-gold-300">Adaga de Prata</span>
-        </h1>
-        <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">Descubra a arte do sapateado gaúcho!</p>
-        <Button className="mt-6 bg-acap-gold-600 hover:bg-acap-gold-700 text-white border-none">
-          <Link href="/programa-de-ensino" className="flex items-center">
-            Conheça nosso programa <ChevronRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
       </section>
+
 
       {/* About Section */}
       <section className="w-full max-w-6xl py-12 px-4 md:px-8">
@@ -228,10 +241,10 @@ export default function Home() {
       </section>
 
       <Button className="mt-6 bg-acap-gold-600 hover:bg-acap-gold-700 text-white border-none">
-          <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdsE4qTCrloSgSzgVtYbcZhKJ2luafS6jCvJxbG2stduq9uCg/viewform?usp=header" className="flex items-center">
-            Quero fazer parte! <ChevronRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
+        <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdsE4qTCrloSgSzgVtYbcZhKJ2luafS6jCvJxbG2stduq9uCg/viewform?usp=header" className="flex items-center">
+          Quero fazer parte! <ChevronRight className="ml-2 h-4 w-4" />
+        </Link>
+      </Button>
 
       {/* Contact Section */}
       <section id="contato" className="w-full max-w-6xl py-8 px-4 md:px-8 mb-12">
